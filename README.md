@@ -11,17 +11,14 @@ To replicate results,
 code should -- for the most part -- be run in order of the program name.
 The Python code needs to be run from the `cde/` directory because
 it relies on relative paths.
-I open up 
+I generally 
+open a Jupyter QtConsole,
+navigate to the `cde/` directory, and
+issue commands like `>>> run 00-ex-mccall-uniform-welfare.py`.
 
 My installation of Python followed the steps described at [QuantEcon](https://quantecon.org/).
 I relied on the following specifications:
 
-<!-- |                     |                | -->
-<!-- |---------------------|----------------| -->
-<!-- | conda version       | 23.1.0         | -->
-<!-- | conda-build version | 3.23.3         | -->
-<!-- | python version      | 3.9.16.final.0 | -->
-<!-- |---------------------|----------------| -->
 |                     |                |
 |---------------------|----------------|
 | conda version       | 23.1.0         |
