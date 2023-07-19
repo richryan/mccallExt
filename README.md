@@ -16,9 +16,11 @@ I open up
 My installation of Python followed the steps described at [QuantEcon](https://quantecon.org/).
 I relied on the following specifications:
 
+|---------------------|----------------|
 | conda version       | 23.1.0         |
 | conda-build version | 3.23.3         |
 | python version      | 3.9.16.final.0 |
+|---------------------|----------------|
 
 Code is contained in the following files.
 
