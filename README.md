@@ -23,6 +23,7 @@ I relied on the following specifications:
 <!-- | python version      | 3.9.16.final.0 | -->
 <!-- |---------------------|----------------| -->
 
+|---------------------|----------------|
 | conda version       | 23.1.0         |
 | conda-build version | 3.23.3         |
 | python version      | 3.9.16.final.0 |
