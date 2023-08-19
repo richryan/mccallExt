@@ -3,8 +3,19 @@
 The paper is **mccallExt.pdf**, located at the top of the directory.
 
 The code that generates the results shared in the paper is contained `cde/`.
-Data and figures are saved to `out/`.
+The code generates data and figures are saved to `out/`.
 In `out/`, datasets are prefixed with `dat_` and figures are prefixed with `fig_`.
+
+Here is a description of the code:
+* `00-ex-mccall-uniform-welfare.py`
+* `01-get-sequence-reservation-wages.py`
+* `02-fig-03-plot-sequence-reservation-wages.R`
+* `03-mccall-uniform-parameters.py`
+* `04-mccall-uniform-pr-ext.py`
+* `05-mccall-uniform-length-ext.py`
+* `06-figs-04-07-plot-simulations.R`
+* `07-get-google-trends.R`
+* `08-fig-01-plot-google-searches.R`
 
 Because the welfare simulations take a long time to run and the datasets are small,
 the .csv files needed to reproduce the paper are committed to the repository.
@@ -16,8 +27,9 @@ running `cde/08-fig-01-plot-google-searches.R` will reproduce the figure include
 
 A log file is saved to `log/`.
 
-To replicate results,
-code should -- for the most part -- be run in order of the program name.
+
+To replicate the entire project,
+code should---for the most part---be run in order of the program name.
 The Python code needs to be run from the `cde/` directory because
 it relies on relative paths.
 I generally 
