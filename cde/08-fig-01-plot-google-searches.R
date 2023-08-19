@@ -37,8 +37,7 @@ showtext_auto()
 
 # Read in data ------------------------------------------------------------
 
-# fin <- here("dta", "cln", "dat-get-google-trends-2020-11-11.csv")
-fin <- here("dta", "dat_07-get-google-trends-2023-08-17.csv")
+fin <- here("out", "dat_07-get-google-trends-2023-08-19.csv")
 dat <- read_csv(file = fin)
 
 # dat <- dat %>% 

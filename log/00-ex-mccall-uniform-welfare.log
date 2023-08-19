@@ -1,0 +1,835 @@
+2023-07-19 06:06:14 AM - INFO - START of program
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:14 AM - INFO - =======================================
+2023-07-19 06:06:14 AM - INFO -    Guidance on random variables:
+2023-07-19 06:06:14 AM - INFO - =======================================
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:14 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:06:14 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:06:14 AM - INFO - generates:
+2023-07-19 06:06:14 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:06:14 AM - INFO - And again:
+2023-07-19 06:06:14 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:14 AM - INFO - Calling
+2023-07-19 06:06:14 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:06:14 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:06:14 AM - INFO - results in different output:
+2023-07-19 06:06:14 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:06:14 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:06:14 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:14 AM - INFO -  ==============================================================
+2023-07-19 06:06:14 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:06:14 AM - INFO -  ==============================================================
+2023-07-19 06:06:14 AM - INFO -  
+2023-07-19 06:06:15 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:06:15 AM - INFO -  
+2023-07-19 06:06:15 AM - INFO -  
+2023-07-19 06:06:15 AM - INFO - ==========================================
+2023-07-19 06:06:15 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:06:15 AM - INFO - ==========================================
+2023-07-19 06:06:15 AM - INFO -  
+2023-07-19 06:06:15 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:06:18 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:06:18 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:06:18 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:06:18 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:06:18 AM - INFO - Simulated welfare using theoretical reservation wage: 17.91111575731144
+2023-07-19 06:06:18 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.91100375805102
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:18 AM - INFO - ================================================================
+2023-07-19 06:06:18 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:06:18 AM - INFO - ================================================================
+2023-07-19 06:06:18 AM - INFO -  
+2023-07-19 06:06:25 AM - INFO -  
+2023-07-19 06:06:25 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:06:25 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:06:25 AM - INFO - -0.0005566991322480952 percent
+2023-07-19 06:06:25 AM - INFO -  
+2023-07-19 06:06:25 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:06:25 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:06:25 AM - INFO - -0.0005471030469994531 percent
+2023-07-19 06:06:25 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:06:25 AM - INFO -  
+2023-07-19 06:06:25 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:06:25 AM - INFO -  
+2023-07-19 06:06:25 AM - INFO -  
+2023-07-19 06:06:25 AM - INFO - ==================================================================
+2023-07-19 06:06:25 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:06:25 AM - INFO - ==================================================================
+2023-07-19 06:06:25 AM - INFO -  
+2023-07-19 06:06:26 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:06:26 AM - INFO -  
+2023-07-19 06:06:26 AM - INFO -  
+2023-07-19 06:06:26 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:06:26 AM - INFO -  
+2023-07-19 06:06:26 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:06:26 AM - INFO -  
+2023-07-19 06:06:26 AM - INFO - ====================================================
+2023-07-19 06:06:26 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:06:26 AM - INFO - ====================================================
+2023-07-19 06:06:28 AM - INFO - Elapsed time:
+2023-07-19 06:06:28 AM - INFO -  
+2023-07-19 06:06:28 AM - INFO - 14.684285402297974
+2023-07-19 06:08:28 AM - INFO - START of program
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO - =======================================
+2023-07-19 06:08:28 AM - INFO -    Guidance on random variables:
+2023-07-19 06:08:28 AM - INFO - =======================================
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:08:28 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:08:28 AM - INFO - generates:
+2023-07-19 06:08:28 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:08:28 AM - INFO - And again:
+2023-07-19 06:08:28 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO - Calling
+2023-07-19 06:08:28 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:08:28 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:08:28 AM - INFO - results in different output:
+2023-07-19 06:08:28 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:08:28 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:08:28 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO -  ==============================================================
+2023-07-19 06:08:28 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:08:28 AM - INFO -  ==============================================================
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO - ==========================================
+2023-07-19 06:08:28 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:08:28 AM - INFO - ==========================================
+2023-07-19 06:08:28 AM - INFO -  
+2023-07-19 06:08:28 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:08:31 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:08:31 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:08:31 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:08:31 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:08:31 AM - INFO - Simulated welfare using theoretical reservation wage: 17.91111575731144
+2023-07-19 06:08:31 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.911003758051002
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:08:31 AM - INFO - ================================================================
+2023-07-19 06:08:31 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:08:31 AM - INFO - ================================================================
+2023-07-19 06:08:31 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO - START of program
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO - =======================================
+2023-07-19 06:09:30 AM - INFO -    Guidance on random variables:
+2023-07-19 06:09:30 AM - INFO - =======================================
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:09:30 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:09:30 AM - INFO - generates:
+2023-07-19 06:09:30 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:09:30 AM - INFO - And again:
+2023-07-19 06:09:30 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO - Calling
+2023-07-19 06:09:30 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:09:30 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:09:30 AM - INFO - results in different output:
+2023-07-19 06:09:30 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:09:30 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:09:30 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO -  ==============================================================
+2023-07-19 06:09:30 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:09:30 AM - INFO -  ==============================================================
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO - ==========================================
+2023-07-19 06:09:30 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:09:30 AM - INFO - ==========================================
+2023-07-19 06:09:30 AM - INFO -  
+2023-07-19 06:09:30 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:09:33 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:09:33 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:09:33 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:09:33 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:09:33 AM - INFO - Simulated welfare using theoretical reservation wage: 17.91111575731148
+2023-07-19 06:09:33 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.91100375805104
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:33 AM - INFO - ================================================================
+2023-07-19 06:09:33 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:09:33 AM - INFO - ================================================================
+2023-07-19 06:09:33 AM - INFO -  
+2023-07-19 06:09:44 AM - INFO - START of program
+2023-07-19 06:09:44 AM - INFO -  
+2023-07-19 06:09:44 AM - INFO - =======================================
+2023-07-19 06:09:44 AM - INFO -    Guidance on random variables:
+2023-07-19 06:09:44 AM - INFO - =======================================
+2023-07-19 06:09:44 AM - INFO -  
+2023-07-19 06:09:44 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:09:44 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:09:44 AM - INFO - generates:
+2023-07-19 06:09:45 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:09:45 AM - INFO - And again:
+2023-07-19 06:09:45 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO - Calling
+2023-07-19 06:09:45 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:09:45 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:09:45 AM - INFO - results in different output:
+2023-07-19 06:09:45 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:09:45 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:09:45 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO -  ==============================================================
+2023-07-19 06:09:45 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:09:45 AM - INFO -  ==============================================================
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO - ==========================================
+2023-07-19 06:09:45 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:09:45 AM - INFO - ==========================================
+2023-07-19 06:09:45 AM - INFO -  
+2023-07-19 06:09:45 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:09:48 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:09:48 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:09:48 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:09:48 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:09:48 AM - INFO - Simulated welfare using theoretical reservation wage: 17.91111575731149
+2023-07-19 06:09:48 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.911003758051002
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:48 AM - INFO - ================================================================
+2023-07-19 06:09:48 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:09:48 AM - INFO - ================================================================
+2023-07-19 06:09:48 AM - INFO -  
+2023-07-19 06:09:53 AM - INFO -  
+2023-07-19 06:09:53 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:09:53 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:09:53 AM - INFO - 0.012271222613713384 percent
+2023-07-19 06:09:53 AM - INFO -  
+2023-07-19 06:09:53 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:09:53 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:09:53 AM - INFO - 0.012284570301179798 percent
+2023-07-19 06:09:53 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:09:53 AM - INFO -  
+2023-07-19 06:09:53 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:09:53 AM - INFO -  
+2023-07-19 06:09:53 AM - INFO -  
+2023-07-19 06:09:53 AM - INFO - ==================================================================
+2023-07-19 06:09:53 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:09:53 AM - INFO - ==================================================================
+2023-07-19 06:09:53 AM - INFO -  
+2023-07-19 06:09:54 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:09:54 AM - INFO -  
+2023-07-19 06:09:54 AM - INFO -  
+2023-07-19 06:09:54 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:09:54 AM - INFO -  
+2023-07-19 06:09:54 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:09:54 AM - INFO -  
+2023-07-19 06:09:54 AM - INFO - ====================================================
+2023-07-19 06:09:54 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:09:54 AM - INFO - ====================================================
+2023-07-19 06:09:57 AM - INFO - Elapsed time:
+2023-07-19 06:09:57 AM - INFO -  
+2023-07-19 06:09:57 AM - INFO - 12.493085384368896
+2023-07-19 06:12:11 AM - INFO - START of program
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:11 AM - INFO - =======================================
+2023-07-19 06:12:11 AM - INFO -    Guidance on random variables:
+2023-07-19 06:12:11 AM - INFO - =======================================
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:11 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:12:11 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:12:11 AM - INFO - generates:
+2023-07-19 06:12:11 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:12:11 AM - INFO - And again:
+2023-07-19 06:12:11 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:11 AM - INFO - Calling
+2023-07-19 06:12:11 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:12:11 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:12:11 AM - INFO - results in different output:
+2023-07-19 06:12:11 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:12:11 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:12:11 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:11 AM - INFO -  ==============================================================
+2023-07-19 06:12:11 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:12:11 AM - INFO -  ==============================================================
+2023-07-19 06:12:11 AM - INFO -  
+2023-07-19 06:12:12 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:12:12 AM - INFO -  
+2023-07-19 06:12:12 AM - INFO -  
+2023-07-19 06:12:12 AM - INFO - ==========================================
+2023-07-19 06:12:12 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:12:12 AM - INFO - ==========================================
+2023-07-19 06:12:12 AM - INFO -  
+2023-07-19 06:12:12 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:12:14 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:12:14 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:12:14 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:12:14 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:12:14 AM - INFO - Simulated welfare using theoretical reservation wage: 17.91111575731148
+2023-07-19 06:12:14 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.911003758051034
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:14 AM - INFO - ================================================================
+2023-07-19 06:12:14 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:12:14 AM - INFO - ================================================================
+2023-07-19 06:12:14 AM - INFO -  
+2023-07-19 06:12:25 AM - INFO -  
+2023-07-19 06:12:25 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:12:25 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:12:25 AM - INFO - 0.012644404073181015 percent
+2023-07-19 06:12:25 AM - INFO -  
+2023-07-19 06:12:25 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:12:25 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:12:25 AM - INFO - 0.012651886885617358 percent
+2023-07-19 06:12:25 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:12:25 AM - INFO -  
+2023-07-19 06:12:25 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:12:25 AM - INFO -  
+2023-07-19 06:12:25 AM - INFO -  
+2023-07-19 06:12:25 AM - INFO - ==================================================================
+2023-07-19 06:12:25 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:12:25 AM - INFO - ==================================================================
+2023-07-19 06:12:25 AM - INFO -  
+2023-07-19 06:12:26 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:12:26 AM - INFO -  
+2023-07-19 06:12:26 AM - INFO -  
+2023-07-19 06:12:26 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:12:26 AM - INFO -  
+2023-07-19 06:12:26 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:12:26 AM - INFO -  
+2023-07-19 06:12:26 AM - INFO - ====================================================
+2023-07-19 06:12:26 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:12:26 AM - INFO - ====================================================
+2023-07-19 06:12:28 AM - INFO - Elapsed time:
+2023-07-19 06:12:29 AM - INFO -  
+2023-07-19 06:12:29 AM - INFO - 17.520951986312866
+2023-07-19 06:13:49 AM - INFO - START of program
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO - =======================================
+2023-07-19 06:13:49 AM - INFO -    Guidance on random variables:
+2023-07-19 06:13:49 AM - INFO - =======================================
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:13:49 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:13:49 AM - INFO - generates:
+2023-07-19 06:13:49 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:13:49 AM - INFO - And again:
+2023-07-19 06:13:49 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO - Calling
+2023-07-19 06:13:49 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:13:49 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:13:49 AM - INFO - results in different output:
+2023-07-19 06:13:49 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:13:49 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:13:49 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO -  ==============================================================
+2023-07-19 06:13:49 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:13:49 AM - INFO -  ==============================================================
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO - ==========================================
+2023-07-19 06:13:49 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:13:49 AM - INFO - ==========================================
+2023-07-19 06:13:49 AM - INFO -  
+2023-07-19 06:13:49 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:13:52 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:13:52 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:13:52 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:13:52 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:13:52 AM - INFO - Simulated welfare using theoretical reservation wage: 17.911115757311467
+2023-07-19 06:13:52 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.911003758051002
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:13:52 AM - INFO - ================================================================
+2023-07-19 06:13:52 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:13:52 AM - INFO - ================================================================
+2023-07-19 06:13:52 AM - INFO -  
+2023-07-19 06:14:03 AM - INFO -  
+2023-07-19 06:14:03 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:14:03 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:14:03 AM - INFO - -0.0001966767019023763 percent
+2023-07-19 06:14:03 AM - INFO -  
+2023-07-19 06:14:03 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:14:03 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:14:03 AM - INFO - -0.00019277496415837092 percent
+2023-07-19 06:14:03 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:14:03 AM - INFO -  
+2023-07-19 06:14:03 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:14:03 AM - INFO -  
+2023-07-19 06:14:03 AM - INFO -  
+2023-07-19 06:14:03 AM - INFO - ==================================================================
+2023-07-19 06:14:03 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:14:03 AM - INFO - ==================================================================
+2023-07-19 06:14:03 AM - INFO -  
+2023-07-19 06:14:04 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:14:04 AM - INFO -  
+2023-07-19 06:14:04 AM - INFO -  
+2023-07-19 06:14:04 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:14:04 AM - INFO -  
+2023-07-19 06:14:04 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:14:04 AM - INFO -  
+2023-07-19 06:14:04 AM - INFO - ====================================================
+2023-07-19 06:14:04 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:14:04 AM - INFO - ====================================================
+2023-07-19 06:14:06 AM - INFO - Elapsed time:
+2023-07-19 06:14:06 AM - INFO -  
+2023-07-19 06:14:06 AM - INFO - 17.62505841255188
+2023-07-19 06:16:03 AM - INFO - START of program
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:03 AM - INFO - =======================================
+2023-07-19 06:16:03 AM - INFO -    Guidance on random variables:
+2023-07-19 06:16:03 AM - INFO - =======================================
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:03 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:16:03 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:16:03 AM - INFO - generates:
+2023-07-19 06:16:03 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:16:03 AM - INFO - And again:
+2023-07-19 06:16:03 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:03 AM - INFO - Calling
+2023-07-19 06:16:03 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:16:03 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:16:03 AM - INFO - results in different output:
+2023-07-19 06:16:03 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:16:03 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:16:03 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:03 AM - INFO -  ==============================================================
+2023-07-19 06:16:03 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:16:03 AM - INFO -  ==============================================================
+2023-07-19 06:16:03 AM - INFO -  
+2023-07-19 06:16:04 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:16:04 AM - INFO -  
+2023-07-19 06:16:04 AM - INFO -  
+2023-07-19 06:16:04 AM - INFO - ==========================================
+2023-07-19 06:16:04 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:16:04 AM - INFO - ==========================================
+2023-07-19 06:16:04 AM - INFO -  
+2023-07-19 06:16:04 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:16:06 AM - INFO - Based on a simulation of size 10000
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:16:06 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:16:06 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 7.944
+2023-07-19 06:16:06 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 7.9464
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:16:06 AM - INFO - Simulated welfare using theoretical reservation wage: 17.91111575731149
+2023-07-19 06:16:06 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.911003758051002
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:06 AM - INFO - ================================================================
+2023-07-19 06:16:06 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:16:06 AM - INFO - ================================================================
+2023-07-19 06:16:06 AM - INFO -  
+2023-07-19 06:16:17 AM - INFO - Based on a simulation of size 20000000
+2023-07-19 06:16:17 AM - INFO -  
+2023-07-19 06:16:17 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:16:17 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:16:17 AM - INFO - -0.00019667670312362162 percent
+2023-07-19 06:16:17 AM - INFO -  
+2023-07-19 06:16:17 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:16:17 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:16:17 AM - INFO - -0.00019277496415837092 percent
+2023-07-19 06:16:17 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:16:17 AM - INFO -  
+2023-07-19 06:16:17 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:16:17 AM - INFO -  
+2023-07-19 06:16:17 AM - INFO -  
+2023-07-19 06:16:17 AM - INFO - ==================================================================
+2023-07-19 06:16:17 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:16:17 AM - INFO - ==================================================================
+2023-07-19 06:16:17 AM - INFO -  
+2023-07-19 06:16:18 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:16:18 AM - INFO -  
+2023-07-19 06:16:18 AM - INFO -  
+2023-07-19 06:16:18 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:16:18 AM - INFO -  
+2023-07-19 06:16:18 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:16:18 AM - INFO -  
+2023-07-19 06:16:18 AM - INFO - ====================================================
+2023-07-19 06:16:18 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:16:18 AM - INFO - ====================================================
+2023-07-19 06:16:21 AM - INFO - Elapsed time:
+2023-07-19 06:16:21 AM - INFO -  
+2023-07-19 06:16:21 AM - INFO - 17.638883590698242
+2023-07-19 06:17:25 AM - INFO - START of program
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:25 AM - INFO - =======================================
+2023-07-19 06:17:25 AM - INFO -    Guidance on random variables:
+2023-07-19 06:17:25 AM - INFO - =======================================
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:25 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:17:25 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:17:25 AM - INFO - generates:
+2023-07-19 06:17:25 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:17:25 AM - INFO - And again:
+2023-07-19 06:17:25 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:25 AM - INFO - Calling
+2023-07-19 06:17:25 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:17:25 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:17:25 AM - INFO - results in different output:
+2023-07-19 06:17:25 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:17:25 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:17:25 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:25 AM - INFO -  ==============================================================
+2023-07-19 06:17:25 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:17:25 AM - INFO -  ==============================================================
+2023-07-19 06:17:25 AM - INFO -  
+2023-07-19 06:17:26 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:17:26 AM - INFO -  
+2023-07-19 06:17:26 AM - INFO -  
+2023-07-19 06:17:26 AM - INFO - ==========================================
+2023-07-19 06:17:26 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:17:26 AM - INFO - ==========================================
+2023-07-19 06:17:26 AM - INFO -  
+2023-07-19 06:17:26 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:17:28 AM - INFO - Based on a simulation of size 100000
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:17:28 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:17:28 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 8.01496
+2023-07-19 06:17:28 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 8.01929
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:17:28 AM - INFO - Simulated welfare using theoretical reservation wage: 17.90089454040075
+2023-07-19 06:17:28 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.90078301118175
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:28 AM - INFO - ================================================================
+2023-07-19 06:17:28 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:17:28 AM - INFO - ================================================================
+2023-07-19 06:17:28 AM - INFO -  
+2023-07-19 06:17:39 AM - INFO - Based on a simulation of size 20000000
+2023-07-19 06:17:39 AM - INFO -  
+2023-07-19 06:17:39 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:17:39 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:17:39 AM - INFO - -0.00019667670312362162 percent
+2023-07-19 06:17:39 AM - INFO -  
+2023-07-19 06:17:39 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:17:39 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:17:39 AM - INFO - -0.00019277496343672595 percent
+2023-07-19 06:17:39 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:17:39 AM - INFO -  
+2023-07-19 06:17:39 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:17:39 AM - INFO -  
+2023-07-19 06:17:39 AM - INFO -  
+2023-07-19 06:17:39 AM - INFO - ==================================================================
+2023-07-19 06:17:39 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:17:39 AM - INFO - ==================================================================
+2023-07-19 06:17:39 AM - INFO -  
+2023-07-19 06:17:40 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:17:40 AM - INFO -  
+2023-07-19 06:17:40 AM - INFO -  
+2023-07-19 06:17:40 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:17:40 AM - INFO -  
+2023-07-19 06:17:40 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:17:40 AM - INFO -  
+2023-07-19 06:17:40 AM - INFO - ====================================================
+2023-07-19 06:17:40 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:17:40 AM - INFO - ====================================================
+2023-07-19 06:17:43 AM - INFO - Elapsed time:
+2023-07-19 06:17:43 AM - INFO -  
+2023-07-19 06:17:43 AM - INFO - 17.665390014648438
+2023-07-19 06:24:35 AM - INFO - START of program
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:35 AM - INFO - =======================================
+2023-07-19 06:24:35 AM - INFO -    Guidance on random variables:
+2023-07-19 06:24:35 AM - INFO - =======================================
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:35 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:24:35 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:24:35 AM - INFO - generates:
+2023-07-19 06:24:35 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:24:35 AM - INFO - And again:
+2023-07-19 06:24:35 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:35 AM - INFO - Calling
+2023-07-19 06:24:35 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:24:35 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:24:35 AM - INFO - results in different output:
+2023-07-19 06:24:35 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:24:35 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:24:35 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:35 AM - INFO -  ==============================================================
+2023-07-19 06:24:35 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:24:35 AM - INFO -  ==============================================================
+2023-07-19 06:24:35 AM - INFO -  
+2023-07-19 06:24:36 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:24:36 AM - INFO -  
+2023-07-19 06:24:36 AM - INFO -  
+2023-07-19 06:24:36 AM - INFO - ==========================================
+2023-07-19 06:24:36 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:24:36 AM - INFO - ==========================================
+2023-07-19 06:24:36 AM - INFO -  
+2023-07-19 06:24:36 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:24:38 AM - INFO - Based on a simulation of size 100000
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:24:38 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:24:38 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 8.01496
+2023-07-19 06:24:38 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 8.01929
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:24:38 AM - INFO - Simulated welfare using theoretical reservation wage: 17.90089454040074
+2023-07-19 06:24:38 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.90078301118175
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:38 AM - INFO - ================================================================
+2023-07-19 06:24:38 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:24:38 AM - INFO - ================================================================
+2023-07-19 06:24:38 AM - INFO -  
+2023-07-19 06:24:48 AM - INFO - Based on a simulation of size 20000000
+2023-07-19 06:24:48 AM - INFO -  
+2023-07-19 06:24:48 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:24:48 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:24:48 AM - INFO - -0.00019667670312362162 percent
+2023-07-19 06:24:48 AM - INFO -  
+2023-07-19 06:24:48 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:24:48 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:24:48 AM - INFO - -0.00019277496415837092 percent
+2023-07-19 06:24:48 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:24:48 AM - INFO -  
+2023-07-19 06:24:48 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:24:48 AM - INFO -  
+2023-07-19 06:24:48 AM - INFO -  
+2023-07-19 06:24:48 AM - INFO - ==================================================================
+2023-07-19 06:24:48 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:24:48 AM - INFO - ==================================================================
+2023-07-19 06:24:48 AM - INFO -  
+2023-07-19 06:24:49 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:24:49 AM - INFO -  
+2023-07-19 06:24:49 AM - INFO -  
+2023-07-19 06:24:49 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:24:49 AM - INFO -  
+2023-07-19 06:24:49 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:24:49 AM - INFO -  
+2023-07-19 06:24:49 AM - INFO - ====================================================
+2023-07-19 06:24:49 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:24:49 AM - INFO - ====================================================
+2023-07-19 06:24:52 AM - INFO - Elapsed time:
+2023-07-19 06:24:52 AM - INFO -  
+2023-07-19 06:24:52 AM - INFO - 16.788185119628906
+2023-07-19 06:25:51 AM - INFO - START of program
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:51 AM - INFO - =======================================
+2023-07-19 06:25:51 AM - INFO -    Guidance on random variables:
+2023-07-19 06:25:51 AM - INFO - =======================================
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:51 AM - INFO - >>> mccall.seed(1234)
+2023-07-19 06:25:51 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:25:51 AM - INFO - generates:
+2023-07-19 06:25:51 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:25:51 AM - INFO - And again:
+2023-07-19 06:25:51 AM - INFO - [0.19151945 0.62210877 0.43772774]
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:51 AM - INFO - Calling
+2023-07-19 06:25:51 AM - INFO - >>> np.random.seed(1234)
+2023-07-19 06:25:51 AM - INFO - >>> mccall.rand(3)
+2023-07-19 06:25:51 AM - INFO - results in different output:
+2023-07-19 06:25:51 AM - INFO - [0.78535858 0.77997581 0.27259261]
+2023-07-19 06:25:51 AM - INFO - [0.27646426 0.80187218 0.95813935]
+2023-07-19 06:25:51 AM - INFO - === END Gudiance on random variables ==
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:51 AM - INFO -  ==============================================================
+2023-07-19 06:25:51 AM - INFO -  === Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:25:51 AM - INFO -  ==============================================================
+2023-07-19 06:25:51 AM - INFO -  
+2023-07-19 06:25:52 AM - INFO -  === END Determining periods unemployed / flow value of nonwork ===
+2023-07-19 06:25:52 AM - INFO -  
+2023-07-19 06:25:52 AM - INFO -  
+2023-07-19 06:25:52 AM - INFO - ==========================================
+2023-07-19 06:25:52 AM - INFO - === Welfare for standard McCall model ===
+2023-07-19 06:25:52 AM - INFO - ==========================================
+2023-07-19 06:25:52 AM - INFO -  
+2023-07-19 06:25:52 AM - INFO - The standard model features sequential search and benefits that do not expire.
+2023-07-19 06:25:54 AM - INFO - Based on a simulation of size 100000
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO - Theoretical expected number of unemployed periods = 7.999999999998288
+2023-07-19 06:25:54 AM - INFO - (based on varying flow value of nonwork)
+2023-07-19 06:25:54 AM - INFO - Avg number of unemployed periods using theoretical reservation wage = 8.01496
+2023-07-19 06:25:54 AM - INFO - Avg number of unemployed periods using MCMC-computed reservation wage = 8.01929
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO - Theoretical welfare is 17.901234567900843
+2023-07-19 06:25:54 AM - INFO - Simulated welfare using theoretical reservation wage: 17.900894540400753
+2023-07-19 06:25:54 AM - INFO - Simulated welfare using MCMC-computed reservation wage: 17.900783011181762
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO -  === END Welfare for standard McCall model ===
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:25:54 AM - INFO - ================================================================
+2023-07-19 06:25:54 AM - INFO - === Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:25:54 AM - INFO - ================================================================
+2023-07-19 06:25:54 AM - INFO -  
+2023-07-19 06:26:05 AM - INFO - Based on a simulation of size 20000000
+2023-07-19 06:26:05 AM - INFO -  
+2023-07-19 06:26:05 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:26:05 AM - INFO - theoretically computed wages and theoretical welfare is
+2023-07-19 06:26:05 AM - INFO - -0.00019667670312362162 percent
+2023-07-19 06:26:05 AM - INFO -  
+2023-07-19 06:26:05 AM - INFO - The difference in welfare computed using the seq of
+2023-07-19 06:26:05 AM - INFO - MCMC-computed wages and theoretical welfare is
+2023-07-19 06:26:05 AM - INFO - -0.00019277496415837092 percent
+2023-07-19 06:26:05 AM - INFO - (Note: 1.0 is one percent.)
+2023-07-19 06:26:05 AM - INFO -  
+2023-07-19 06:26:05 AM - INFO -  === END Welfare for McCall model with finite periods of benefits ===
+2023-07-19 06:26:05 AM - INFO -  
+2023-07-19 06:26:05 AM - INFO -  
+2023-07-19 06:26:05 AM - INFO - ==================================================================
+2023-07-19 06:26:05 AM - INFO - === Matching expected duration with finite periods of benefits ===
+2023-07-19 06:26:05 AM - INFO - ==================================================================
+2023-07-19 06:26:05 AM - INFO -  
+2023-07-19 06:26:06 AM - INFO -     (Aside: The difference between the closed-form solution and the while loop is 3.938183112950355e-12)
+2023-07-19 06:26:06 AM - INFO -  
+2023-07-19 06:26:06 AM - INFO -  
+2023-07-19 06:26:06 AM - INFO - The difference in duration between the simulation and theory, using seq of numerical wages, is 0.08435576631076191 percent
+2023-07-19 06:26:06 AM - INFO -  
+2023-07-19 06:26:06 AM - INFO - === END Matching expected duration with finite periods of benefits ===
+2023-07-19 06:26:06 AM - INFO -  
+2023-07-19 06:26:06 AM - INFO - ====================================================
+2023-07-19 06:26:06 AM - INFO - === Comparison of sequences of reservation-wages ===
+2023-07-19 06:26:06 AM - INFO - ====================================================
+2023-07-19 06:26:09 AM - INFO - Elapsed time:
+2023-07-19 06:26:09 AM - INFO -  
+2023-07-19 06:26:09 AM - INFO - 17.42449402809143
+2023-07-19 06:26:34 AM - DEBUG - diff parser start
+2023-07-19 06:26:34 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 06:26:34 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 06:26:34 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 06:26:34 AM - DEBUG - diff parser end
+2023-07-19 06:26:45 AM - DEBUG - diff parser start
+2023-07-19 06:26:45 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 06:26:45 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 06:26:45 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 06:26:45 AM - DEBUG - diff parser end
+2023-07-19 06:26:55 AM - DEBUG - diff parser start
+2023-07-19 06:26:55 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 06:26:55 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 06:26:55 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 06:26:55 AM - DEBUG - diff parser end
+2023-07-19 06:27:10 AM - DEBUG - diff parser start
+2023-07-19 06:27:10 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 06:27:10 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 06:27:10 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 06:27:10 AM - DEBUG - diff parser end
+2023-07-19 06:28:58 AM - DEBUG - diff parser start
+2023-07-19 06:28:58 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 06:28:58 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 06:28:58 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 06:28:58 AM - DEBUG - diff parser end
+2023-07-19 06:45:27 AM - DEBUG - diff parser start
+2023-07-19 06:45:27 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 06:45:27 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 06:45:27 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 06:45:27 AM - DEBUG - diff parser end
+2023-07-19 07:09:59 AM - DEBUG - diff parser start
+2023-07-19 07:09:59 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 07:09:59 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 07:09:59 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 07:09:59 AM - DEBUG - diff parser end
+2023-07-19 07:09:59 AM - DEBUG - pickle loaded: C:\Users\rryan1\Anaconda3\lib\site-packages\jedi\third_party\typeshed\stdlib\3\sys.pyi
+2023-07-19 07:25:13 AM - DEBUG - diff parser start
+2023-07-19 07:25:13 AM - DEBUG - line_lengths old: 1; new: 1
+2023-07-19 07:25:13 AM - DEBUG - -> code[replace] old[1:1] new[1:1]
+2023-07-19 07:25:13 AM - DEBUG - parse_part from 1 to 1 (to 0 in part parser)
+2023-07-19 07:25:13 AM - DEBUG - diff parser end

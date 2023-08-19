@@ -105,7 +105,7 @@ dat <- dat_get %>%
 
 # Save ALL the data as rds 
 fout_rds <- paste0("dat_", file_prg, "-", today(), ".rds")
-write_rds(dat, here("dta", fout_rds))
+write_rds(dat, here("out", fout_rds))
 
 # Grab only list element "interest_over_time" from data
 dat_hits <- dat %>% 
@@ -126,4 +126,4 @@ dat_hits <- dat_hits %>%
 # Since the search query uses "today", 
 # then need to save date to file name
 fout <- paste0("dat_", file_prg, "-", today(), ".csv")
-write_csv(dat_hits, here("dta", fout))
+write_csv(dat_hits, here("out", fout))

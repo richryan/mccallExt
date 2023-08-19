@@ -1,11 +1,11 @@
 # mccallExt
 
-The paper is in **TKTK.pdf**.
+The paper is **mccallExt.pdf**, located at the top of the directory.
 
 The code that generates the results shared in the paper is contained `cde/`.
 Data and figures are saved to `out/`.
+In `out/`, datasets are prefixed with `dat_` and figures are prefixed with `fig_`.
 A log file is saved to `log/`.
-
 
 To replicate results,
 code should -- for the most part -- be run in order of the program name.
