@@ -5,6 +5,11 @@ The paper is **mccallExt.pdf**, located at the top of the directory.
 The code that generates the results shared in the paper is contained `cde/`.
 Data and figures are saved to `out/`.
 In `out/`, datasets are prefixed with `dat_` and figures are prefixed with `fig_`.
+
+Because the welfare simulations take a long time to run and the datasets are small,
+the .csv files needed to reproduce the paper are committed to the repository.
+These datasets can be entirely reproduced by running the code as described---with one exception.
+
 A log file is saved to `log/`.
 
 To replicate results,
