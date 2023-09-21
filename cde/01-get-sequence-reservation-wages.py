@@ -121,8 +121,6 @@ for i, δ in enumerate(vPrExt):
     idf = pd.DataFrame(iDat)
     df = pd.concat([df, idf])
 
-
-
 fout = Path.cwd().parent / Path('out') / Path('dat_' + filePrg + '-seq-reservation-wages.csv')
 df.to_csv(fout, index=False)
 
