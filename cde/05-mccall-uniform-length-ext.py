@@ -54,13 +54,6 @@ c = dat['c'].item()
 z = dat['z'].item()
 target_nperiods = dat['target_nperiods'].item()
 
-# ============================
-# === Chance for extension ===
-# ============================
-
-Δ = 25
-δ = 0.5
-
 # =======================================================================
 # === Welfare costs when incorrect assessment of extension likelihood ===
 # =======================================================================
@@ -79,7 +72,7 @@ else:
     n_reps = 1_000
 
 # True number of extensions
-Δ = 25
+Δ = 13
 lengthExtension_halfGridSize = 10
 lengthExtension_gridSize = 2 * lengthExtension_halfGridSize + 1
 vLengthExtension = np.arange(Δ - lengthExtension_halfGridSize, Δ + lengthExtension_halfGridSize + 1)

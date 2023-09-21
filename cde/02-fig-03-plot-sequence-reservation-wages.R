@@ -20,7 +20,7 @@ font_add_google("Fira Sans", "firaSans")
 ## Automatically use showtext to render text
 showtext_auto()
 
-file_prg <- "02-fig-03-plot-sequence-reservation-wages"
+file_prg <- "02-fig-03-rplot-sequence-reservation-wages"
 input_file <- here("out", "dat_01-get-sequence-reservation-wages-seq-reservation-wages.csv")
 file_out <- c("out")
 

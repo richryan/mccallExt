@@ -53,7 +53,7 @@ target_nperiods = dat['target_nperiods'].item()
 # ============================
 
 nperiods_ui_compensation = target_nperiods
-Δ = 25
+Δ = 13
 δ = 0.5
 
 # =======================================================================

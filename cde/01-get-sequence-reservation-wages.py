@@ -46,19 +46,20 @@ plt.rcParams.update({'font.size': 16})
 # ====================================================
 # === Get reasonable value for the flow of nonwork ===
 # ====================================================
-β = 0.95
-vFlowNonwork = np.linspace(0.05, 0.9*(1 + 1 / β) / 2, 50)
+βannual = 0.94                  # Discount the future at 6 percent per year
+β = βannual**(1 / 52)
+vFlowNonwork = np.linspace(0.000000005, 0.9*(1 + 1 / β) / 2, 50)
 vNperiodsUnemployed = np.empty_like(vFlowNonwork)
-periodsUnempTarget = 10
+periodsUnempTarget = 20
 fun_match_periods_unemployed = mccall.fun_make_match_periods_unemployed_unif(β=β, nperiods=periodsUnempTarget)    
 
 for i in range(len(vFlowNonwork)):
     iFlowNonwork = vFlowNonwork[i]
-    reservationWage = 1/β - ((1 - β)*(1 + β - 2 * β * iFlowNonwork))**(1 / 2) / β
+    iReservationWage = 1/β - ((1 - β)*(1 + β - 2 * β * iFlowNonwork))**(1 / 2) / β
     # Theoretical expected number of periods unemployed computed,
     # using the fact that the cdf of a uniform[0,1] RV is x.
-    vNperiodsUnemployed[i] = reservationWage / (1 - reservationWage)
-        
+    vNperiodsUnemployed[i] = iReservationWage / (1 - iReservationWage)
+
 # Define parameter space to search over flow value of nonwork.
 # The maximum wage draw is 1, so flow nonwork is between 0 and 1.
 brac_lo = 0.001
@@ -94,7 +95,7 @@ flowNonwork = res.x
 z = flowNonwork / 2.0
 c = flowNonwork / 2.0
 
-nperiodsUI = 15
+nperiodsUI = periodsUnempTarget
 Δ = 13
 δ = 0.5
 

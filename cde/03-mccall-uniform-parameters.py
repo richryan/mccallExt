@@ -30,8 +30,9 @@ file_prg = '03-mccall-uniform-parameters'
 # =======================
 # === Deep parameters ===
 # =======================
-β = 0.95
-target_nperiods = 10
+βannual = 0.94
+β = βannual**(1 / 52)
+target_nperiods = 20
 fun_match_periods_unemployed = mccall.fun_make_match_periods_unemployed_unif(β=β, nperiods=target_nperiods)    
 
 # Flow is between 0 and 1 (the max wage is 1)
