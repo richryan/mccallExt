@@ -140,24 +140,41 @@ horizon = np.arange(0, maxPeriodsUI + 1, step = 1)
 dat_properties = {"horizon" : horizon,
                   "reservation_wages" : reservationWagesExtended_βhi,
                   "bbeta" : βhi * np.ones_like(horizon),
+                  "flow_nonwork" : z * np.ones_like(horizon),                             
                   "ui_compensation" : c * np.ones_like(horizon),
                   "pr_ext" : "extended"} 
 df_properties = pd.DataFrame(dat_properties)
 
 
-# Higher UI compensation
-chi = c * 1.1
+# Lower UI compensation
+clo = c * 0.5
 
-reservationWagesExtended_chi = mccall.fun_compute_reservation_wages_uniform(β=β, c=chi, z=z, n=maxPeriodsUI)
+reservationWagesExtended_clo = mccall.fun_compute_reservation_wages_uniform(β=β, c=clo, z=z, n=maxPeriodsUI)
 
-dat_chi = {"horizon" : horizon,
-           "reservation_wages" : reservationWagesExtended_chi,
+dat_clo = {"horizon" : horizon,
+           "reservation_wages" : reservationWagesExtended_clo,
            "bbeta" : β * np.ones_like(horizon),
-           "ui_compensation" : chi * np.ones_like(horizon),           
+           "flow_nonwork" : z * np.ones_like(horizon),           
+           "ui_compensation" : clo * np.ones_like(horizon),           
            "pr_ext" : "extended"} 
-df_chi = pd.DataFrame(dat_chi)
+df_clo = pd.DataFrame(dat_clo)
 
-df_properties = pd.concat([df_properties, df_chi])
+df_properties = pd.concat([df_properties, df_clo])
+
+# Lower flow nonwork
+zlo = z * 0.5
+
+reservationWagesExtended_zlo = mccall.fun_compute_reservation_wages_uniform(β=β, c=c, z=zlo, n=maxPeriodsUI)
+
+dat_zlo = {"horizon" : horizon,
+           "reservation_wages" : reservationWagesExtended_zlo,
+           "bbeta" : β * np.ones_like(horizon),
+           "flow_nonwork" : zlo * np.ones_like(horizon),
+           "ui_compensation" : c * np.ones_like(horizon),           
+           "pr_ext" : "extended"} 
+df_zlo = pd.DataFrame(dat_zlo)
+
+df_properties = pd.concat([df_properties, df_zlo])
 
 horizon = np.arange(0, nperiodsUI + 1, step = 1)
 for i, δ in enumerate(vPrExt):
@@ -165,23 +182,35 @@ for i, δ in enumerate(vPrExt):
     iDat_βhi = {"horizon" : horizon,
                 "reservation_wages" : iReservationWages_βhi,
                 "bbeta" : βhi * np.ones_like(horizon),
+                "flow_nonwork" : z * np.ones_like(horizon),
                 "ui_compensation" : c * np.ones_like(horizon),                       
                 "pr_ext" : δ}
     idf_βhi = pd.DataFrame(iDat_βhi)
     df_properties = pd.concat([df_properties, idf_βhi])
 
-    iReservationWages_chi = mccall.fun_compute_reservation_wages_uniform_ext(β=β, c=chi, z=z, n=nperiodsUI, δ=δ, Δ=Δ)
-    iDat_chi = {"horizon" : horizon,
-                "reservation_wages" : iReservationWages_βhi,
+    iReservationWages_clo = mccall.fun_compute_reservation_wages_uniform_ext(β=β, c=clo, z=z, n=nperiodsUI, δ=δ, Δ=Δ)
+    iDat_clo = {"horizon" : horizon,
+                "reservation_wages" : iReservationWages_clo,
                 "bbeta" : β * np.ones_like(horizon),
-                "ui_compensation" : chi * np.ones_like(horizon),                       
+                "flow_nonwork" : z * np.ones_like(horizon),                                
+                "ui_compensation" : clo * np.ones_like(horizon),                       
                 "pr_ext" : δ}
-    idf_chi = pd.DataFrame(iDat_chi)
-    df_properties = pd.concat([df_properties, idf_chi])
+    idf_clo = pd.DataFrame(iDat_clo)
+    df_properties = pd.concat([df_properties, idf_clo])
+
+    iReservationWages_zlo = mccall.fun_compute_reservation_wages_uniform_ext(β=β, c=c, z=zlo, n=nperiodsUI, δ=δ, Δ=Δ)
+    iDat_zlo = {"horizon" : horizon,
+                "reservation_wages" : iReservationWages_zlo,
+                "bbeta" : β * np.ones_like(horizon),
+                "flow_nonwork" : zlo * np.ones_like(horizon),                
+                "ui_compensation" : c * np.ones_like(horizon),                       
+                "pr_ext" : δ}
+    idf_zlo = pd.DataFrame(iDat_zlo)
+    df_properties = pd.concat([df_properties, idf_zlo])    
 
 
 fout_properties = Path.cwd().parent / Path('out') / Path('dat_' + filePrg + '-seq-reservation-wages-properties.csv')
-df.to_csv(fout_properties, index=False)
+df_properties.to_csv(fout_properties, index=False)
 
 print(' ')
 print('Elapsed time:')

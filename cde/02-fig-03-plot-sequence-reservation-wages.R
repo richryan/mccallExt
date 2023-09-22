@@ -22,6 +22,7 @@ showtext_auto()
 
 file_prg <- "02-fig-03-plot-sequence-reservation-wages"
 input_file <- here("out", "dat_01-get-sequence-reservation-wages-seq-reservation-wages.csv")
+input_file_prop <- here("out", "dat_01-get-sequence-reservation-wages-seq-reservation-wages-properties.csv")
 file_out <- c("out")
 
 csub_blue <- rgb(0, 26, 112, maxColorValue = 255)
@@ -32,9 +33,10 @@ mywidth <- 6
 golden <- 0.5*(1 + sqrt(5))
 myheight <- mywidth / golden
 
-# Read in dataset ---------------------------------------------------------
+# Read in datasets ---------------------------------------------------------
 
 dat <- read_csv(input_file)
+dat_prop <- read_csv(input_file_prop)
 
 # Plot sequences of reservation wages -------------------------------------
 
@@ -84,3 +86,40 @@ fout <- here(file_out, fout_name)
 ggsave(fout, plot = last_plot(), 
        width = mywidth, height = myheight)
 
+# Plot properties of sequences --------------------------------------------
+
+dat_prop_plt <- dat_prop %>% 
+  mutate(case = case_when(
+    bbeta == max(bbeta) ~ "high_beta",
+    flow_nonwork == min(flow_nonwork) ~ "low_z",
+    ui_compensation == min(ui_compensation) ~ "low_c"
+  )) %>% 
+  mutate(series = case_when(
+    pr_ext == "extended" ~ "Extended",
+    TRUE ~ paste0(round(as.numeric(pr_ext), digits = 1))
+  ),
+  series = str_remove(series, "^0+"),
+  series_lbl = case_when(
+    series == "Extended" & horizon == 1  ~ "Extended",
+    series == ".1"       & horizon == 2  ~ "Probability of extension .1",
+    series == ".5"       & horizon == 8  ~ "Probability of extension .5",
+    series == ".9"       & horizon == 15 ~ "Probability of extension .9",    
+    TRUE ~ ""
+      )) %>% 
+  filter(series %in% c("Extended", ".1", ".5", ".9")) %>% 
+  mutate(series = factor(series, levels = c("Extended", ".1", ".5", ".9"))) %>% 
+  bind_rows(mutate(dat_plt, case = "baseline"))
+
+ggplot(data = filter(dat_prop_plt, series == "Extended" | series == ".5")) +
+  geom_line(mapping = aes(x = horizon, y =  reservation_wages, color = case, linetype = series), linewidth = 1.2) +
+  scale_color_viridis_d(labels = c("baseline" = "Baseline", "high_beta" = expression(High~beta), low_c = expression(Low~c), low_z = expression(Low~z)), end = 0.8) +  
+  labs(x = "Remaining periods of UI compensation", y = "Reservation wages",
+       color = "", linetype = "Extended or\npr. of extension") +
+  scale_x_continuous(breaks = brks,
+                     labels = brks_lbl) +
+  theme_tufte(base_family = 'firaSans', ticks = TRUE) 
+
+fout_properties_name <- paste0("fig_", file_prg, "-properties.pdf")
+fout_properties <- here(file_out, fout_properties_name)
+ggsave(fout_properties, plot = last_plot(), 
+       width = mywidth, height = myheight)
