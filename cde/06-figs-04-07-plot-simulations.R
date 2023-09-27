@@ -14,6 +14,7 @@ library(viridis)
 library(here)
 library(ggrepel)
 library(cowplot)
+library(scales)
 
 # File information --------------------------------------------------------
 
@@ -49,7 +50,12 @@ dat_n <- read_csv(here('out', 'dat_05-mccall-uniform-length-ext_2023-07-19.csv')
 xlab_text <- "Difference between perceived probability of extension and
        true probability of extension"
 
+scientific_10 <- function(x) {
+  parse(text=gsub("e", " %*% 10^", scales::scientific_format()(x)))
+}
+
 pr_true <- 0.5
+pr_breaks <- seq(-0.2, 0.2, by = 0.1)
 ggplot(data = dat) +
   geom_rect(aes(
     xmin = -0.2,
@@ -68,6 +74,9 @@ ggplot(data = dat) +
   geom_line(mapping = aes(x = probs_perceived - pr_true, y = relative_welfare),
             color = csub_blue, linewidth = 0.9) +
   labs(x = xlab_text, y = "Relative welfare, percent") +
+  scale_y_continuous(labels = scientific_10) +
+  scale_x_continuous(breaks = pr_breaks,
+                     labels = signs::signs(pr_breaks)) +
   theme_tufte(base_family = "firaSans") 
 
 figout <- here(file_out, paste0("fig_", file_prg, "-welfare.pdf"))
@@ -82,6 +91,7 @@ ext_true <- 25
 dat_n <- dat_n %>% 
   mutate(rel_n = length_ext_perceived - ext_true)
 
+N_breaks <- seq(-10, 10, by = 5)
 ggplot(data = dat_n) +
   geom_rect(aes(
     xmin = -10.0,
@@ -100,6 +110,9 @@ ggplot(data = dat_n) +
   geom_line(mapping = aes(x = rel_n, y = relative_welfare),
             color = csub_blue, linewidth = 0.9) +
   labs(x = xlab_text_N, y = "Relative welfare, percent") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = N_breaks,
+                     labels = signs::signs(N_breaks)) +    
   theme_tufte(base_family = "firaSans") 
 
 figout <- here(file_out, paste0("fig_", file_prg, "-welfare-N.pdf"))
@@ -124,6 +137,9 @@ p1 <- ggplot(data = dat) +
   geom_line(mapping = aes(x = prs_relative, y = stopping_time_diff),
             color = csub_blue, linewidth = 0.9) +
   labs(x = "", y = "Periods unemployed\nrelative to optimal") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-0.2, 0.2, by = 0.1),
+                     labels = signs::signs_format()) +  
   theme_tufte(base_family = "sans")  
 
 p2 <- ggplot(data = dat) +
@@ -131,6 +147,9 @@ p2 <- ggplot(data = dat) +
   geom_line(mapping = aes(x = prs_relative, y = accepted_wage_diff),
             color = csub_blue, linewidth = 0.9) +
   labs(x = xlab_text, y = "Accepted wage\nrelative to optimal, percent") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-0.2, 0.2, by = 0.1),
+                     labels = signs::signs_format()) +  
   theme_tufte(base_family = "sans")  
 
 plot_grid(p1, p2, ncol = 1, align = "v", axis = "b") 
@@ -150,6 +169,9 @@ p1annotated <- ggplot(data = dat) +
            label = "Believe an extension is likely\nso spend too long unemployed...") +
   annotate("segment", x = 0.05, xend = 0.14, y = -0.0025, yend = -0.001, linewidth = 0.7) +
   labs(x = "", y = "Periods unemployed\nrelative to optimal") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-0.2, 0.2, by = 0.1),
+                     labels = signs::signs_format()) +  
   theme_tufte(base_family = "sans")  
 (p1annotated)
 
@@ -164,6 +186,9 @@ p2annotated <- ggplot(data = dat) +
   geom_line(mapping = aes(x = prs_relative, y = accepted_wage_diff),
             color = csub_blue, linewidth = 0.9) +
   labs(x = xlab_text, y = "Accepted wage\nrelative to optimal, percent") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-0.2, 0.2, by = 0.1),
+                     labels = signs::signs_format()) +  
   theme_tufte(base_family = "sans")  
 
 plot_grid(p1annotated, p2annotated, ncol = 1, align = "v", axis = "b") 
@@ -185,6 +210,9 @@ p3annotated <- ggplot(data = dat) +
            label = "Believe an extension is unlikely\nso spend too little time unemployed...") +
   annotate("segment", x = 0.05, xend = -0.05, y = -0.0025, yend = -0.001, size = 0.7) +
   labs(x = "", y = "Periods unemployed\nrelative to optimal") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-0.2, 0.2, by = 0.1),
+                     labels = signs::signs_format()) +
   theme_tufte(base_family = "sans")  
 (p3annotated)
 
@@ -199,7 +227,10 @@ p4annotated <- ggplot(data = dat) +
   geom_line(mapping = aes(x = prs_relative, y = accepted_wage_diff),
             color = csub_blue, size = 0.9) +
   labs(x = xlab_text, y = "Accepted wage\nrelative to optimal, percent") +
-  theme_tufte(base_family = "sans")  
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-0.2, 0.2, by = 0.1),
+                     labels = signs::signs_format()) +
+  theme_tufte(base_family = "sans")    
 (p4annotated)
 
 plot_grid(p3annotated, p4annotated, ncol = 1, align = "v", axis = "b") 
@@ -229,6 +260,9 @@ p5annotated <- ggplot(data = dat_n) +
            label = "Believe extension will be short\nso spend too little time unemployed...") +
   annotate("segment", x = -1, xend = 4, y = -0.0025, yend = -0.015, size = 0.7) +
   labs(x = "", y = "Periods unemployed\nrelative to optimal") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-10, 10, by = 5),
+                     labels = signs::signs_format()) +  
   theme_tufte(base_family = "firaSans")  
 (p5annotated)
 
@@ -245,6 +279,9 @@ p6annotated <- ggplot(data = dat_n) +
   geom_line(mapping = aes(x = rel_n, y = accepted_wage_diff),
             color = csub_blue, size = 0.9) +
   labs(x = xlab_text_N, y = "Accepted wage\nrelative to optimal, percent") +
+  scale_y_continuous(labels = scientific_10) +  
+  scale_x_continuous(breaks = seq(-10, 10, by = 5),
+                     labels = signs::signs_format()) +
   theme_tufte(base_family = "sans")  
 (p6annotated)
 
