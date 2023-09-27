@@ -51,9 +51,9 @@ dat_plt <- dat %>%
   series = str_remove(series, "^0+"),
   series_lbl = case_when(
     series == "Extended" & horizon == 1  ~ "Extended",
-    series == ".1"       & horizon == 2  ~ "Probability of extension .1",
-    series == ".5"       & horizon == 8  ~ "Probability of extension .5",
-    series == ".9"       & horizon == 15 ~ "Probability of extension .9",    
+    series == ".1"       & horizon == 2  ~ "Probability of extension 0.1",
+    series == ".5"       & horizon == 8  ~ "Probability of extension 0.5",
+    series == ".9"       & horizon == 15 ~ "Probability of extension 0.9",    
     TRUE ~ ""
       )) %>% 
   filter(series %in% c("Extended", ".1", ".5", ".9")) %>% 
@@ -101,16 +101,22 @@ dat_prop_plt <- dat_prop %>%
   series = str_remove(series, "^0+"),
   series_lbl = case_when(
     series == "Extended" & horizon == 1  ~ "Extended",
-    series == ".1"       & horizon == 2  ~ "Probability of extension .1",
-    series == ".5"       & horizon == 8  ~ "Probability of extension .5",
-    series == ".9"       & horizon == 15 ~ "Probability of extension .9",    
-    TRUE ~ ""
+    series == ".1"       & horizon == 2  ~ "Probability of extension 0.1",
+    series == ".5"       & horizon == 8  ~ "Probability of extension 0.5",
+    series == ".9"       & horizon == 15 ~ "Probability of extension 0.9",    
+    .default = ""
       )) %>% 
   filter(series %in% c("Extended", ".1", ".5", ".9")) %>% 
   mutate(series = factor(series, levels = c("Extended", ".1", ".5", ".9"))) %>% 
   bind_rows(mutate(dat_plt, case = "baseline"))
 
-ggplot(data = filter(dat_prop_plt, series == "Extended" | series == ".5")) +
+dat_prop_plt <- dat_prop_plt %>% 
+  filter(series == "Extended" | series == ".5") %>% 
+  mutate(series = case_when(
+    series == ".5" ~ "0.5",
+    series == "Extended" ~ "Extended"
+  ))
+ggplot(data = dat_prop_plt) +
   geom_line(mapping = aes(x = horizon, y =  reservation_wages, color = case, linetype = series), linewidth = 1.2) +
   scale_color_viridis_d(labels = c("baseline" = "Baseline", "high_beta" = expression(High~beta), low_c = expression(Low~c), low_z = expression(Low~z)), end = 0.8) +  
   labs(x = "Remaining periods of UI compensation", y = "Reservation wages",
