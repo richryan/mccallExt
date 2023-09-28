@@ -52,9 +52,6 @@ I relied on the following specifications:
 | conda-build version | 3.23.3         |
 | python version      | 3.9.16.final.0 |
 
-
-This public repository is locked.
-
 RR.
 
 
